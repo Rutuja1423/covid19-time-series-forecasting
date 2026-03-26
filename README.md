@@ -1,184 +1,90 @@
-# COVID-19 Time Series Forecasting
+# COVID-19 Time Series Forecasting | Machine Learning and Deep Learning
 
-## Project Overview
+## Problem Statement
+Accurate forecasting of COVID-19 cases is essential for healthcare planning, resource allocation, and policy decision-making. This project aims to predict daily new COVID-19 cases using historical time series data.
 
-This project focuses on forecasting daily COVID 19 new cases in the United States using time series modeling techniques.
-It compares traditional machine learning and deep learning models to understand their effectiveness in predicting real world sequential data.
+---
 
-The models implemented in this project:
-
-* Linear Regression
-* Artificial Neural Network (ANN)
-* Long Short Term Memory (LSTM)
-
-The goal is to evaluate how well different models can capture trends and fluctuations in pandemic data.
+## Objectives
+- Transform time series data into supervised learning format using lag features  
+- Build and compare multiple forecasting models  
+- Evaluate model performance using regression metrics  
+- Identify the most effective model for short-term forecasting  
 
 ---
 
 ## Dataset
-
-* Source: Public COVID 19 dataset (Our World in Data)
-* Country: United States
-* Time Period: January 2020 to May 2021
-* Target Variable: Daily New Cases
-
-Missing values were handled by replacing them with zero, and negative values were clipped to ensure data consistency.
+- Source: Public COVID-19 dataset (United States daily cases)  
+- Target Variable: Daily new confirmed cases  
+- Features: Previous 14 days (lag features)  
 
 ---
 
-## Methodology
-
-### 1. Time Series Transformation
-
-The dataset was converted into a supervised learning problem using lag features:
-
-* Previous 14 days of cases used as input features
-* Current day cases used as target
-
-### 2. Train-Test Split
-
-* 70% Training Data
-* 30% Testing Data
-* Chronological split (no shuffling)
-
-### 3. Data Scaling
-
-* MinMaxScaler used
-* Fitted only on training data to avoid data leakage
+## Tools and Technologies Used
+- Python  
+- Pandas, NumPy  
+- Scikit-learn  
+- TensorFlow / Keras  
+- Matplotlib  
 
 ---
 
-## Models Implemented
+## Approach
 
-### Linear Regression
+### 1. Data Preparation
+- Converted time series into supervised format using lag features  
+- Handled missing values  
+- Scaled data appropriately to avoid leakage  
 
-* Baseline model
-* Captures linear relationships in lagged features
+### 2. Model Building
+- Linear Regression  
+- Artificial Neural Network (ANN)  
+- LSTM Neural Network  
 
-### Artificial Neural Network (ANN)
-
-* Feedforward neural network
-* Captures non linear relationships
-
-### LSTM Neural Network
-
-* Designed for sequential data
-* Captures temporal dependencies
-
----
-
-## Evaluation Metrics
-
-* RMSE (Root Mean Squared Error)
-* MAE (Mean Absolute Error)
-* R² Score
-
----
-
-## Results Summary
-
-| Model             | RMSE  | MAE   | R²    |
-| ----------------- | ----- | ----- | ----- |
-| ANN               | 23946 | 15964 | 0.875 |
-| Linear Regression | 24032 | 15071 | 0.874 |
-| LSTM              | 31426 | 22116 | 0.785 |
+### 3. Model Evaluation
+- RMSE (Root Mean Squared Error)  
+- MAE (Mean Absolute Error)  
+- R² Score  
 
 ---
 
 ## Key Insights
-
-* ANN achieved the best performance with the lowest RMSE
-* Linear Regression performed nearly as well as ANN
-* LSTM underperformed despite being a sequential model
-* This shows that more complex models do not always guarantee better results
-
----
-
-## Visualizations
-
-### Model Predictions
-
-* Actual vs Predicted values plotted for all models
-
-### Loss Curves
-
-* Training vs Validation loss for ANN and LSTM
+- Linear Regression performed competitively despite its simplicity  
+- ANN achieved the best overall performance  
+- LSTM underperformed, indicating that complex models are not always necessary  
+- Recent past values strongly influence short-term predictions  
 
 ---
 
-## Project Structure
-
-```
-covid19-time-series-forecasting/
-│
-├── data/
-│   └── covid-data.csv
-│
-├── src/
-│   └── covid19_time_series_forecasting.py
-│
-├── outputs/
-│   ├── covid19_model_predictions.png
-│   ├── ann_loss_curve.png
-│   ├── lstm_loss_curve.png
-│   └── model_comparison_results.csv
-│
-├── README.md
-└── requirements.txt
-```
+## Business Impact
+- Supports healthcare authorities in predicting case trends  
+- Helps in planning hospital resources and staffing  
+- Enables faster and simpler deployment using lightweight models  
 
 ---
 
-## How to Run the Project
-
-1. Clone the repository:
-
-```
-git clone https://github.com/Rutuja1423/covid19-time-series-forecasting.git
-```
-
-2. Install dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-3. Run the script:
-
-```
-python src/covid19_time_series_forecasting.py
-```
+## Results
+- Best Model: Artificial Neural Network  
+- Linear Regression showed comparable performance with lower complexity  
+- LSTM did not outperform simpler models  
 
 ---
 
-## Technologies Used
-
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Scikit learn
-* TensorFlow / Keras
-
----
-
-## Conclusion
-
-This project demonstrates how different modeling techniques behave on time series data.
-It highlights that simpler models can sometimes outperform complex deep learning models depending on data characteristics and feature engineering.
+## How to Run
+1. Clone the repository  
+2. Install required libraries  
+3. Run the notebook step-by-step  
 
 ---
 
 ## Future Improvements
-
-* Use more recent COVID 19 data
-* Try advanced models like GRU or Prophet
-* Hyperparameter tuning
-* Cross validation for time series
+- Incorporate external features such as mobility or vaccination data  
+- Use advanced models like Prophet or XGBoost  
+- Extend forecasting to multiple countries  
 
 ---
 
 ## Author
-
 Rutuja Shinde
-
+MSc Statistics Student | Aspiring Data Analyst  
+GitHub: https://github.com/Rutuja1423
