@@ -29,7 +29,7 @@ random.seed(SEED)
 np.random.seed(SEED)
 tf.random.set_seed(SEED)
 
-DATA_PATH = "C:\\Users\\Sanman\\Downloads\\Projects\\covid-data.csv"
+DATA_PATH = "data\\covid-data.csv"
 COUNTRY = "United States"
 TARGET_COLUMN = "new_cases"
 DATE_COLUMN = "date"
